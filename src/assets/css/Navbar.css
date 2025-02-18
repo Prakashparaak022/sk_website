@@ -39,4 +39,18 @@
     transform: scale(1.08);
     transition: scale 0.3s ease-in-out;
 }
-  
+
+.darkNavBtn{
+    background-color: transparent !important;
+    border-bottom: 4px solid transparent !important;
+}
+.darkNavBtn:hover{
+    color: #6992ff !important;
+    border-bottom: 4px solid #6992ff !important;
+}
+.lightNavBtn{
+    border-bottom: 4px solid transparent !important;
+}
+.lightNavBtn:hover{
+    border-bottom: 4px solid #ffffff !important;
+}

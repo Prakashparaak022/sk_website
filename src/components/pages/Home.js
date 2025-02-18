@@ -1,30 +1,29 @@
-import React from 'react'
-import Navbar from './Navbar'
-import SlideCarousel from './SlideCarousel'
-import GameCarousel from './GameCarousel'
-import GameBar from './GameBar'
-import cricket from "../assets/images/cricket_small.png";
+import React from "react";
+import Navbar from "../layout/Navbar";
+import SlideCarousel from "../features/SlideCarousel";
+import GameCarousel from "../reusable/GameCarousel";
+import GameBar from "../features/GameBar";
+import cricket from "../../assets/images/cricket_small.png";
 
-import AGame_image_1 from "../assets/images/A_Game_1.jpg";
-import AGame_image_2 from "../assets/images/A_Game_2.jpg";
-import AGame_image_3 from "../assets/images/A_Game_3.jpg";
+import AGame_image_1 from "../../assets/images/A_Game_1.jpg";
+import AGame_image_2 from "../../assets/images/A_Game_2.jpg";
+import AGame_image_3 from "../../assets/images/A_Game_3.jpg";
 
-import BGame_image_1 from "../assets/images/B_Game_1.jpg";
-import BGame_image_2 from "../assets/images/B_Game_2.jpg";
-import BGame_image_3 from "../assets/images/B_Game_3.jpg";
+import BGame_image_1 from "../../assets/images/B_Game_1.jpg";
+import BGame_image_2 from "../../assets/images/B_Game_2.jpg";
+import BGame_image_3 from "../../assets/images/B_Game_3.jpg";
 
-import CGame_image_1 from "../assets/images/C_Game_1.jpg";
-import CGame_image_2 from "../assets/images/C_Game_2.jpg";
-import CGame_image_3 from "../assets/images/C_Game_3.jpg";
+import CGame_image_1 from "../../assets/images/C_Game_1.jpg";
+import CGame_image_2 from "../../assets/images/C_Game_2.jpg";
+import CGame_image_3 from "../../assets/images/C_Game_3.jpg";
 
-import DGame_image_1 from "../assets/images/D_Game_1.jpg";
-import DGame_image_2 from "../assets/images/D_Game_2.jpg";
-import DGame_image_3 from "../assets/images/D_Game_3.jpg";
-import CardComponent from './CardComponent'
-import Footer from './Footer';
+import DGame_image_1 from "../../assets/images/D_Game_1.jpg";
+import DGame_image_2 from "../../assets/images/D_Game_2.jpg";
+import DGame_image_3 from "../../assets/images/D_Game_3.jpg";
+import CardComponent from "../reusable/CardComponent";
+import Footer from "../layout/Footer";
 
 function Home() {
-  
   const AGameImageList = [
     AGame_image_1,
     AGame_image_2,
@@ -57,7 +56,6 @@ function Home() {
     DGame_image_2,
   ];
 
-  
   const cardDetailsList = [
     {
       image: cricket,
@@ -156,18 +154,18 @@ function Home() {
 
   return (
     <>
-    <Navbar/>
-    <SlideCarousel />
-    <GameBar />
-    <CardComponent title = {"Exchange"} cardDetailsList = {cardDetailsList}/>
-    <GameCarousel title = {"Instant Games"} imageList={AGameImageList} />
-    <GameCarousel title = {"Slots"} imageList={BGameImageList} />
-    <CardComponent title = {"Sports"} cardDetailsList = {cardDetailsList2}/>
-    <GameCarousel title = {"Fishing"} imageList={CGameImageList} />
-    <GameCarousel title = {"Board Game"} imageList={DGameImageList} />
-    <Footer />
+      <Navbar />
+      <SlideCarousel />
+      <GameBar />
+      <CardComponent title={"Exchange"} cardDetailsList={cardDetailsList} />
+      <GameCarousel title={"Instant Games"} imageList={AGameImageList} />
+      <GameCarousel title={"Slots"} imageList={BGameImageList} />
+      <CardComponent title={"Sports"} cardDetailsList={cardDetailsList2} />
+      <GameCarousel title={"Fishing"} imageList={CGameImageList} />
+      <GameCarousel title={"Board Game"} imageList={DGameImageList} />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

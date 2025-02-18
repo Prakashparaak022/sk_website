@@ -11,10 +11,10 @@ import {
   Typography,
 } from "@mui/material";
 import React, { act, useEffect, useState } from "react";
-import profileLogo from "../assets/images/user_image.png";
-import Navbar from "./Navbar";
-import UserUpdateForm from "./UserUpdateForm";
-import { updateSchema } from "../schema";
+import profileLogo from "../../assets/images/user_image.png";
+import Navbar from "../layout/Navbar";
+import UserUpdateForm from "../UserUpdateForm";
+import { updateSchema } from "../../schema";
 import { useFormik } from "formik";
 
 function User() {
@@ -37,7 +37,7 @@ function User() {
     state: "",
     city: "",
     zipCode: "",
-    userAccountTypeId : "",
+    userAccountTypeId: "",
     affiliateTag: "",
     activeStatus: "",
     isPlayerAge18Plus: false,
@@ -79,32 +79,32 @@ function User() {
     }
   }, [userId]);
 
-    useEffect(() => {
-      if (userData) {
-        setValues((prevState) => ({
-          ...prevState,
-          firstName: userData.firstName || "",
-          lastName: userData.lastName || "",
-          dob: userData.dob || "",
-          email: userData.email || "",
-          phone: userData.phone || "",
-          phoneCountryIsdcodeId: userData.phoneCountryIsdcodeId || "",
-          gender: userData.gender || "",
-          actionUserName: userData.actionUserName || "",
-          address1: userData.address1 || "",
-          address2: userData.address2 || "",
-          address3: userData.address3 || "",
-          state: userData.state || "",
-          city: userData.city || "",
-          zipCode: userData.zipCode || "",
-          userAccountTypeId: userData.userAccountTypeId || "",
-          affiliateTag: userData.affiliateTag || "",
-          activeStatus: userData.activeStatus || "",
-          isPlayerAge18Plus: userData.isPlayerAge18Plus || false,
-          isPlayerAcceptTAndC: userData.isPlayerAcceptTAndC || false,
-        }));
-      }
-    }, [userData]);
+  useEffect(() => {
+    if (userData) {
+      setValues((prevState) => ({
+        ...prevState,
+        firstName: userData.firstName || "",
+        lastName: userData.lastName || "",
+        dob: userData.dob || "",
+        email: userData.email || "",
+        phone: userData.phone || "",
+        phoneCountryIsdcodeId: userData.phoneCountryIsdcodeId || "",
+        gender: userData.gender || "",
+        actionUserName: userData.actionUserName || "",
+        address1: userData.address1 || "",
+        address2: userData.address2 || "",
+        address3: userData.address3 || "",
+        state: userData.state || "",
+        city: userData.city || "",
+        zipCode: userData.zipCode || "",
+        userAccountTypeId: userData.userAccountTypeId || "",
+        affiliateTag: userData.affiliateTag || "",
+        activeStatus: userData.activeStatus || "",
+        isPlayerAge18Plus: userData.isPlayerAge18Plus || false,
+        isPlayerAcceptTAndC: userData.isPlayerAcceptTAndC || false,
+      }));
+    }
+  }, [userData]);
 
   const userUpdate = async (reqPayload) => {
     if (!reqPayload) return;
@@ -134,7 +134,6 @@ function User() {
   };
 
   const handleUpdate = () => {
-
     const profile = {
       id: userId,
       brandName: userData.brandName,
@@ -161,18 +160,25 @@ function User() {
       reportingHirearchyUserId: userData.reportingHirearchyUserId,
       playerCurrencyId: userData.playerCurrencyId,
       isPlayerAge18Plus: values.isPlayerAge18Plus,
-      isPlayerAcceptTAndC:  values.isPlayerAcceptTAndC
+      isPlayerAcceptTAndC: values.isPlayerAcceptTAndC,
     };
     console.log(JSON.stringify(profile));
     userUpdate(profile);
   };
 
-  const { values, handleChange, handleBlur, errors, touched, handleSubmit, setValues } =
-    useFormik({
-      initialValues: formData,
-      validationSchema: updateSchema,
-      onSubmit: handleUpdate,
-    });
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    handleSubmit,
+    setValues,
+  } = useFormik({
+    initialValues: formData,
+    validationSchema: updateSchema,
+    onSubmit: handleUpdate,
+  });
 
   return (
     <>

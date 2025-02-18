@@ -1,7 +1,7 @@
 import { Box, Container, Grid2 as Grid } from "@mui/material";
 import React from "react";
 import Slider from "react-slick";
-import rightArrow from "../assets/images/rightArrow.png";
+import rightArrow from "../../assets/images/rightArrow.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function GameCarousel(props) {

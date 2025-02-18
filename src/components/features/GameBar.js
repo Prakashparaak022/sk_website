@@ -13,16 +13,18 @@ import {
   Grid2 as Grid,
   Toolbar,
   Typography,
+  useTheme,
 } from "@mui/material";
-import evo from "../assets/images/evo.png";
-import cricket from "../assets/images/cricket.png";
-import fire from "../assets/images/fire.png";
+import evo from "../../assets/images/evo.png";
+import cricket from "../../assets/images/cricket.png";
+import fire from "../../assets/images/fire.png";
 
-import gameImage1 from "../assets/images/game_image_1.png";
-import gameImage2 from "../assets/images/game_image_2.png";
-import gameImage3 from "../assets/images/game_image_3.png";
+import gameImage1 from "../../assets/images/game_image_1.png";
+import gameImage2 from "../../assets/images/game_image_2.png";
+import gameImage3 from "../../assets/images/game_image_3.png";
 
 function GameBar() {
+  const theme = useTheme(); 
   const icons = [
     { name: "Cricket", icon: gameImage1, image: fire },
     { name: "Home", icon: gameImage2, image: cricket },
@@ -36,10 +38,11 @@ function GameBar() {
   return (
     <AppBar
       position="static"
+      className="gameBar"
       sx={{
         display: { xs: "none", md: "flex" },
-        background: "#1d1d1d",
         padding: "0 20px",
+        background: theme.palette.mode === "dark" ? "#191919" : "#ffffff",
       }}>
       <Toolbar
         className="gameToolbar"

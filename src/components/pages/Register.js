@@ -15,15 +15,15 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import registerBannerBackground from "../assets/images/register_banner_image.png";
-import logo from "../assets/images/logo.png";
+import registerBannerBackground from "../../assets/images/register_banner_image.png";
+import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import LockOutlined from '@mui/icons-material/LockOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import PhoneAndroidOutlinedIcon from '@mui/icons-material/PhoneAndroidOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LockOutlined from "@mui/icons-material/LockOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { useFormik } from "formik";
-import { registerSchema } from "../schema";
+import { registerSchema } from "../../schema";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -46,82 +46,80 @@ function Register() {
     playerRegistrationDate: "",
     reportingHirearchyUserId: "",
   });
-    const [drawer, setDrawer] = useState(false);
+  const [drawer, setDrawer] = useState(false);
 
   const navigate = useNavigate();
 
   const countries = [
     {
-      label: 'India',
-      value: '72',
+      label: "India",
+      value: "72",
     },
     {
-      label: 'U.S',
-      value: '73',
+      label: "U.S",
+      value: "73",
     },
   ];
-  
+
   const countryCodes = [
     {
-      label: 'India +91',
-      value: '+91',
+      label: "India +91",
+      value: "+91",
     },
     {
-      label: 'U.S +81',
-      value: '+81',
+      label: "U.S +81",
+      value: "+81",
     },
   ];
 
   const currencies = [
     {
-      label: 'INR ₹',
-      value: '1',
+      label: "INR ₹",
+      value: "1",
     },
     {
-      label: 'U.S $',
-      value: '5',
+      label: "U.S $",
+      value: "5",
     },
   ];
 
-
-  const POST_URL = "http://ec2-18-206-191-96.compute-1.amazonaws.com:9081/main-api-gateway/player-management-gateway/player-management/api/v1/player-profiles/createPlayerProfile"
+  const POST_URL =
+    "http://ec2-18-206-191-96.compute-1.amazonaws.com:9081/main-api-gateway/player-management-gateway/player-management/api/v1/player-profiles/createPlayerProfile";
 
   const currentDateTime = new Date().toISOString();
   // .replace("T", " ").slice(0, -1);
-  const addRecord = async(reqPayload, values, actions)=>{
+  const addRecord = async (reqPayload, values, actions) => {
     try {
-    const response = await fetch(POST_URL, {
-      method:"POST",
-      headers : {
-        'Content-Type': 'application/json',
-      },
-      body:JSON.stringify(reqPayload)
-    });
-     const data = await response.json();
+      const response = await fetch(POST_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reqPayload),
+      });
+      const data = await response.json();
 
-    if(response.status === 201 || response.status === 200){
-      console.log("User Created SuccessFully");
-      console.log("User Created : ", data);
-      setDrawer(true);
-      setTimeout(()=>{
-        navigate('/');
-        actions.resetForm();
-      }, 2000)
-      
-    localStorage.setItem("username", data.userName)
-    localStorage.setItem("userId", data.id)
-    localStorage.setItem("playerCurrencyId", data.playerCurrencyId)
-    } else{
-      console.log("Error while creating the User");
-      
-    }
+      if (response.status === 201 || response.status === 200) {
+        console.log("User Created SuccessFully");
+        console.log("User Created : ", data);
+        setDrawer(true);
+        setTimeout(() => {
+          navigate("/");
+          actions.resetForm();
+        }, 2000);
+
+        localStorage.setItem("username", data.userName);
+        localStorage.setItem("userId", data.id);
+        localStorage.setItem("playerCurrencyId", data.playerCurrencyId);
+      } else {
+        console.log("Error while creating the User");
+      }
     } catch (error) {
       console.error("error while creating the user : ", error);
     }
-  }
+  };
 
   const handleFormSubmit = (values, actions) => {
-
     const profileData = {
       brandName: "Amazon Brand 123",
       userAccountTypeId: 7,
@@ -148,10 +146,11 @@ function Register() {
     setDrawer(false);
   };
 
-    const {values, handleChange, handleBlur, errors, touched, handleSubmit} = useFormik({
-      initialValues:formData,
-      validationSchema : registerSchema,
-      onSubmit: handleFormSubmit
+  const { values, handleChange, handleBlur, errors, touched, handleSubmit } =
+    useFormik({
+      initialValues: formData,
+      validationSchema: registerSchema,
+      onSubmit: handleFormSubmit,
     });
 
   return (
@@ -161,7 +160,11 @@ function Register() {
         flexDirection={"column"}
         alignItems={"center"}
         justifyContent={"center"}>
-        <img src={logo} alt="logo" style={{ width: "205px",marginTop:"40px" }} />
+        <img
+          src={logo}
+          alt="logo"
+          style={{ width: "205px", marginTop: "40px" }}
+        />
         <Paper className="registerBox">
           <Paper className="registerInnerBox">
             <Box
@@ -180,14 +183,21 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.username}
-                error = {(errors.username && touched.username) ? true : false}
-                helperText={(errors.username && touched.username) ? (errors.username) : ""}
+                error={errors.username && touched.username ? true : false}
+                helperText={
+                  errors.username && touched.username ? errors.username : ""
+                }
                 InputProps={{
-                  startAdornment:(
+                  startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircleOutlinedIcon sx={{color:"#fff", background:"transparent !important"}}/>
+                      <AccountCircleOutlinedIcon
+                        sx={{
+                          color: "#fff",
+                          background: "transparent !important",
+                        }}
+                      />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
               <TextField
@@ -202,14 +212,16 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.password}
-                error = {(errors.password && touched.password) ? true : false}
-                helperText={(errors.password && touched.password) ? (errors.password) : ""}
+                error={errors.password && touched.password ? true : false}
+                helperText={
+                  errors.password && touched.password ? errors.password : ""
+                }
                 InputProps={{
-                  startAdornment:(
+                  startAdornment: (
                     <InputAdornment position="start">
-                      <LockOutlined sx={{color:"#fff"}}/>
+                      <LockOutlined sx={{ color: "#fff" }} />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
               <TextField
@@ -224,14 +236,22 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.confirmPassword}
-                error = {(errors.confirmPassword && touched.confirmPassword) ? true : false}
-                helperText={(errors.confirmPassword && touched.confirmPassword) ? (errors.confirmPassword) : ""}
+                error={
+                  errors.confirmPassword && touched.confirmPassword
+                    ? true
+                    : false
+                }
+                helperText={
+                  errors.confirmPassword && touched.confirmPassword
+                    ? errors.confirmPassword
+                    : ""
+                }
                 InputProps={{
-                  startAdornment:(
+                  startAdornment: (
                     <InputAdornment position="start">
-                      <LockOutlined sx={{color:"#fff"}}/>
+                      <LockOutlined sx={{ color: "#fff" }} />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
               <TextField
@@ -247,12 +267,14 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.countryId}
-                error = {(errors.countryId && touched.countryId) ? true : false}
-                helperText={(errors.countryId && touched.countryId) ? (errors.countryId) : ""}>
-                {countries.map((country, index)=>(
-                  <MenuItem  key={index} value={country.value}>
+                error={errors.countryId && touched.countryId ? true : false}
+                helperText={
+                  errors.countryId && touched.countryId ? errors.countryId : ""
+                }>
+                {countries.map((country, index) => (
+                  <MenuItem key={index} value={country.value}>
                     {country.label}
-                  </MenuItem >
+                  </MenuItem>
                 ))}
               </TextField>
               <TextField
@@ -268,12 +290,18 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.countryCode}
-                error = {(errors.countryCode && touched.countryCode) ? true : false}
-                helperText={(errors.countryCode && touched.countryCode) ? (errors.countryCode) : ""}>
-                  {countryCodes.map((countryCode, index)=>(
-                    <MenuItem key={index} value={countryCode.value}>{countryCode.label}</MenuItem>
-                  ))}
-                </TextField>
+                error={errors.countryCode && touched.countryCode ? true : false}
+                helperText={
+                  errors.countryCode && touched.countryCode
+                    ? errors.countryCode
+                    : ""
+                }>
+                {countryCodes.map((countryCode, index) => (
+                  <MenuItem key={index} value={countryCode.value}>
+                    {countryCode.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               <TextField
                 className="inputField"
                 id="phone"
@@ -285,14 +313,14 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.phone}
-                error = {(errors.phone && touched.phone) ? true : false}
-                helperText={(errors.phone && touched.phone) ? (errors.phone) : ""}             
+                error={errors.phone && touched.phone ? true : false}
+                helperText={errors.phone && touched.phone ? errors.phone : ""}
                 InputProps={{
-                  startAdornment:(
+                  startAdornment: (
                     <InputAdornment position="start">
-                      <PhoneAndroidOutlinedIcon sx={{color:"#fff"}}/>
+                      <PhoneAndroidOutlinedIcon sx={{ color: "#fff" }} />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
               <TextField
@@ -306,14 +334,14 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
-                error = {(errors.email && touched.email) ? true : false}
-                helperText={(errors.email && touched.email) ? (errors.email) : ""}                           
+                error={errors.email && touched.email ? true : false}
+                helperText={errors.email && touched.email ? errors.email : ""}
                 InputProps={{
-                  startAdornment:(
+                  startAdornment: (
                     <InputAdornment position="start">
-                      <EmailOutlinedIcon sx={{color:"#fff"}}/>
+                      <EmailOutlinedIcon sx={{ color: "#fff" }} />
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
               <TextField
@@ -329,23 +357,25 @@ function Register() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.currency}
-                error = {(errors.currency && touched.currency) ? true : false}
-                helperText={(errors.currency && touched.currency) ? (errors.currency) : ""}
-              >{currencies.map((currency, index)=>(
-                <MenuItem key={index} value={currency.value}>
-                  {currency.label}
-                </MenuItem>
-              ))}
+                error={errors.currency && touched.currency ? true : false}
+                helperText={
+                  errors.currency && touched.currency ? errors.currency : ""
+                }>
+                {currencies.map((currency, index) => (
+                  <MenuItem key={index} value={currency.value}>
+                    {currency.label}
+                  </MenuItem>
+                ))}
               </TextField>
               <Grid container alignItems={"center"}>
                 <Checkbox
-                id="isPlayerAge18Plus"
-                name="isPlayerAge18Plus"
-                onBlur={handleBlur}
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                checked={values.isPlayerAge18Plus}
+                  id="isPlayerAge18Plus"
+                  name="isPlayerAge18Plus"
+                  onBlur={handleBlur}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  checked={values.isPlayerAge18Plus}
                   sx={{
                     color: "#dddddd",
                     "&.Mui-checked": {
@@ -356,17 +386,19 @@ function Register() {
                 <Typography sx={{ color: "#cbcbcb" }}>
                   I am at least 18 year old
                 </Typography>
-                {(errors.isPlayerAge18Plus && touched.isPlayerAge18Plus) ? (errors.isPlayerAge18Plus) : ""}
+                {errors.isPlayerAge18Plus && touched.isPlayerAge18Plus
+                  ? errors.isPlayerAge18Plus
+                  : ""}
               </Grid>
               <Grid container alignItems={"center"}>
                 <Checkbox
-                id="isPlayerAcceptTAndC"
-                name="isPlayerAcceptTAndC"
-                checked={values.isPlayerAcceptTAndC}
-                onBlur={handleBlur}
-                onChange={(e) => {
-                  handleChange(e);
-                }}
+                  id="isPlayerAcceptTAndC"
+                  name="isPlayerAcceptTAndC"
+                  checked={values.isPlayerAcceptTAndC}
+                  onBlur={handleBlur}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
                   sx={{
                     color: "#dddddd",
                     "&.Mui-checked": {
@@ -378,9 +410,9 @@ function Register() {
                   I agree to the Terms & Conditions
                 </Typography>
                 {errors.isPlayerAcceptTAndC && touched.isPlayerAcceptTAndC && (
-                <Typography color="error" mb={1}>
-                  {errors.isPlayerAcceptTAndC}
-                </Typography>
+                  <Typography color="error" mb={1}>
+                    {errors.isPlayerAcceptTAndC}
+                  </Typography>
                 )}
               </Grid>
               <Button

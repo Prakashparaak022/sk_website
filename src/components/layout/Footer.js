@@ -3,22 +3,37 @@ import {
   colors,
   Container,
   Divider,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
   Grid2 as Grid,
   Paper,
+  Radio,
+  RadioGroup,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
+  useColorScheme,
+  useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useContext, useState } from "react";
 
-import restriction from "../assets/images/restriction.png";
-import GCB from "../assets/images/GCB.png";
+import restriction from "../../assets/images/restriction.png";
+import GCB from "../../assets/images/GCB.png";
 
-import footerCasino from "../assets/images/footer_casino.png";
-import footerGift from "../assets/images/footer_gift.png";
-import footerLottery from "../assets/images/footer_lottery.png";
-import footerSlot from "../assets/images/footer_slot.png";
-import footerVip from "../assets/images/footer_vip.png";
+import footerCasino from "../../assets/images/footer_casino.png";
+import footerGift from "../../assets/images/footer_gift.png";
+import footerLottery from "../../assets/images/footer_lottery.png";
+import footerSlot from "../../assets/images/footer_slot.png";
+import footerVip from "../../assets/images/footer_vip.png";
+import logo from "../../assets/images/logo.png";
+import "../../assets/css/Footer.css";
+import { DataContext } from "../context/DataContext";
 
 function Footer() {
+  const {toggleTheme, setToggleTheme} = useContext(DataContext);
+  const theme = useTheme();
+
   const footerData = [
     {
       title: "Sports",
@@ -68,11 +83,12 @@ function Footer() {
   return (
     <Container
       maxWidth="none"
+      className="footer"
       sx={{
         color: "#fff",
-        background: "rgba(21, 21, 21, 0.66)",
         py: 4,
         mt: 4,
+        background: "#1c1c1c"
       }}>
       <Grid sx={{ margin: "0px 20px" }}>
         <Box sx={{ flexGrow: 1 }}>
@@ -137,7 +153,10 @@ function Footer() {
         <Divider sx={{ borderColor: "gray" }} />
 
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container sx={{ margin: "20px 0px" }} justifyContent={"space-between"}>
+          <Grid
+            container
+            sx={{ margin: "20px 0px" }}
+            justifyContent={"space-between"}>
             <Grid size={{ xs: 12, md: 8 }}>
               <Typography variant="body1" sx={{ color: "#7c7c7c" }}>
                 Mk.com is owned and operated by Middle Kang B.V. that is
@@ -151,10 +170,7 @@ function Footer() {
               </Typography>
             </Grid>
 
-            <Grid
-              size={{ xs: 12, md: 3 }}
-              gap={2}
-              sx={{ display: "flex"}}>
+            <Grid size={{ xs: 12, md: 3 }} gap={2} sx={{ display: "flex" }}>
               <img
                 src={GCB}
                 alt="GCB_Image"
@@ -166,13 +182,31 @@ function Footer() {
               <img
                 src={restriction}
                 alt="Restriction_Image"
-                style={{ color: "#7c7c7c", width: "68px"}}
+                style={{ color: "#7c7c7c", width: "68px" }}
               />
             </Grid>
           </Grid>
         </Box>
 
         <Divider sx={{ borderColor: "gray" }} />
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container>
+            <Grid container size={4} alignItems={"center"}>
+              <img src={logo} style={{ width: "40%" }} alt="logo" />
+              <ToggleButtonGroup
+                color="primary"
+                exclusive
+                value={toggleTheme}
+                onChange={(e, value)=> setToggleTheme(value)}
+                sx={{
+                  background:"#f5f5f5"
+                }}>
+                <ToggleButton value="dark">Dark</ToggleButton>
+                <ToggleButton value="light">Light</ToggleButton>
+              </ToggleButtonGroup>
+            </Grid>
+          </Grid>
+        </Box>
       </Grid>
     </Container>
   );

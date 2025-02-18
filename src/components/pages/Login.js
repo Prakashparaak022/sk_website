@@ -13,8 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import registerBannerBackground from "../assets/images/register_banner_image.png";
-import logo from "../assets/images/logo.png";
+import registerBannerBackground from "../../assets/images/register_banner_image.png";
+import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LockOutlined from "@mui/icons-material/LockOutlined";
@@ -22,7 +22,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { useFormik } from "formik"
-import { loginSchema } from "../schema";
+import { loginSchema } from "../../schema";
 
 function Login() {
   
