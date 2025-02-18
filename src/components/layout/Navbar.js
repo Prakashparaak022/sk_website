@@ -25,7 +25,6 @@ import giftAnimation from "../../assets/animation/gift.json";
 import WalletTwoToneIcon from "@mui/icons-material/WalletTwoTone";
 import CurrencyExchangeTwoToneIcon from "@mui/icons-material/CurrencyExchangeTwoTone";
 import LocalAtmTwoToneIcon from "@mui/icons-material/LocalAtmTwoTone";
-import { BorderStyle } from "@mui/icons-material";
 import NavLinks from "./NavLinks";
 
 function Navbar() {

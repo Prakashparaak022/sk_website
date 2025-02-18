@@ -8,7 +8,7 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
     
-const [toggleTheme, setToggleTheme] = useState("dark");
+const [toggleTheme, setToggleTheme] = useState("light");
 
 const theme = useMemo(() => (toggleTheme === "dark" ? darkTheme : lightTheme), [toggleTheme]);
 
