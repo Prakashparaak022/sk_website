@@ -1,18 +1,20 @@
-.gameBarImage{
-    display: none;
-    width: 100px;
-    padding: 0px 50px;
-}
-
-.gameBarBanner{
-    display: block;
+.gameBar {
+    width: 180px;
+    height: 50px;
+    border-radius: 30px;
     cursor: pointer;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.gameBar:hover .gameBarImage{
-    display: block;
+.gameBarImg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
-
-.gameBar:hover .gameBarBanner{
-    display: none;
-}
+  
+  

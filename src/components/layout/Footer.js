@@ -31,7 +31,7 @@ import "../../assets/css/Footer.css";
 import { DataContext } from "../context/DataContext";
 
 function Footer() {
-  const {toggleTheme, setToggleTheme} = useContext(DataContext);
+  const { toggleTheme, setToggleTheme } = useContext(DataContext);
   const theme = useTheme();
 
   const footerData = [
@@ -88,7 +88,10 @@ function Footer() {
         color: "#fff",
         py: 4,
         mt: 4,
-        background: "#1c1c1c"
+        background:
+          theme.palette.mode === "dark"
+            ? "#1c1c1c"
+            : "linear-gradient(-135deg,rgb(0,42,135) 25%,rgb(147,64,255) 100%) !important",
       }}>
       <Grid sx={{ margin: "0px 20px" }}>
         <Box sx={{ flexGrow: 1 }}>
@@ -99,7 +102,16 @@ function Footer() {
               size={{ xs: 12, md: 7 }}>
               {footerData.map((footer, index) => (
                 <Grid item key={index}>
-                  <Typography variant="h6" sx={{ mb: 2, fontWeight: "600" }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      mb: 2,
+                      fontWeight: "600",
+                      color:
+                        theme.palette.mode === "dark"
+                          ? theme.palette.text.highlight
+                          : "#fff",
+                    }}>
                     {footer.title}
                   </Typography>
 
@@ -107,7 +119,7 @@ function Footer() {
                     <Typography
                       key={index}
                       variant="body1"
-                      sx={{ mb: 2, color: "#7c7c7c" }}>
+                      sx={{ mb: 2, color: theme.palette.text.secondary }}>
                       {link}
                     </Typography>
                   ))}
@@ -116,7 +128,16 @@ function Footer() {
             </Grid>
 
             <Grid item size={{ xs: 12, md: 4 }}>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "600" }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 2,
+                  fontWeight: "600",
+                  color:
+                    theme.palette.mode === "dark"
+                      ? theme.palette.text.highlight
+                      : "#fff",
+                }}>
                 Casino
               </Typography>
               <Grid container spacing={6}>
@@ -140,7 +161,10 @@ function Footer() {
                       />
                       <Typography
                         variant="body1"
-                        sx={{ textAlign: "center", color: "#7c7c7c" }}>
+                        sx={{
+                          textAlign: "center",
+                          color: theme.palette.text.secondary,
+                        }}>
                         {data.title}
                       </Typography>
                     </Grid>
@@ -158,7 +182,9 @@ function Footer() {
             sx={{ margin: "20px 0px" }}
             justifyContent={"space-between"}>
             <Grid size={{ xs: 12, md: 8 }}>
-              <Typography variant="body1" sx={{ color: "#7c7c7c" }}>
+              <Typography
+                variant="body1"
+                sx={{ color: theme.palette.text.secondary }}>
                 Mk.com is owned and operated by Middle Kang B.V. that is
                 incorporated under the laws of Curaçao with company registration
                 number 168291 and having its registered address at Kaya Richard
@@ -197,9 +223,22 @@ function Footer() {
                 color="primary"
                 exclusive
                 value={toggleTheme}
-                onChange={(e, value)=> setToggleTheme(value)}
+                onChange={(e, value) => setToggleTheme(value)}
                 sx={{
-                  background:"#f5f5f5"
+                  background: "#f5f5f5",
+                  borderRadius: "30px",
+                  p: "4px",
+                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+                  "& .MuiToggleButtonGroup-grouped": {
+                    borderRadius: "20px !important",
+                    border: "none",
+                    p: "5px 10px",
+                  },
+                  "& .Mui-selected": {
+                    backgroundColor: "#007bff !important",
+                    color: "#fff !important",
+                    boxShadow: "0 2px 8px rgba(0, 123, 255, 0.5)",
+                  },
                 }}>
                 <ToggleButton value="dark">Dark</ToggleButton>
                 <ToggleButton value="light">Light</ToggleButton>

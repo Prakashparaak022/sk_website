@@ -16,3 +16,56 @@
 .footer{
   background: #1c1c1c !important;
 } */
+ .body{
+  overflow: hidden;
+ }
+
+ /* Dark Theme */
+ .button{
+  padding: .3rem 1.5rem !important;
+ }
+
+.greenButton{
+  color: #000;
+  background-image: linear-gradient(90deg, #24ee89, #9fe871) !important;
+  box-shadow: rgba(35, 238, 136, 0.3) 0px 0px 12px, rgb(29, 202, 106) 0px -2px inset !important;
+}
+.lightButton {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+/* Gamebar */
+.lightGamebar{
+  background: linear-gradient(-135deg, #aa49ff 25%, #7400e7 100%) !important;
+  box-shadow: rgba(0, 116, 231, .4) 0 2px 10px 0 !important;
+  border: 2px solid #5900ff !important;
+}
+
+/* Slider */
+.darkSlider  .slick-prev:before {
+  color: #9fe871; 
+}
+
+.darkSlider .slick-next:before {
+  color: #9fe871; 
+}
+
+.lightSlider  .slick-prev:before {
+  color: #9340ffcc; 
+}
+
+.lightSlider .slick-next:before {
+  color: #9340ffcc; 
+}
+.lightSlider .sliderBgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.darkSlider .sliderBgImg {
+  display: none;
+}

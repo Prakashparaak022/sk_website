@@ -8,32 +8,6 @@
     /* border-bottom: 3px solid #6992ff; */
 }
 
-.navButton:hover :after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 3px;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    background-image: url('../images/buttonOverlay.svg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.navButton:hover .dropDown{
-    background-image: url('../images/dropdown.png');
-}
-
-.dropDown{
-    background-image: url('../images/dropdown(90).png');
-    width: 12px;
-    height: 12px;
-    margin-left: 2px;
-    background-size: 12px 12px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
 
 .hoveredImage:hover {
     transform: scale(1.08);
@@ -45,8 +19,8 @@
     border-bottom: 4px solid transparent !important;
 }
 .darkNavBtn:hover{
-    color: #6992ff !important;
-    border-bottom: 4px solid #6992ff !important;
+    color: #9fe871 !important;
+    border-bottom: 4px solid #9fe871 !important;
 }
 .lightNavBtn{
     border-bottom: 4px solid transparent !important;

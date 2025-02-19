@@ -43,7 +43,7 @@ function Carousel() {
       maxWidth="none"
       sx={{
         borderTop: "1px solid #fbfbfb14",
-        background: theme.palette.mode === "dark" ? "#1c1c1c" : "#ffffff",
+        background: theme.palette.mode === "dark" ? "#232626" : "#ffffff",
         position: "relative",
         overflow: "hidden",
       }}>

@@ -61,14 +61,14 @@ function Navbar() {
 
   return (
     <AppBar
-      className = "navbar"
+      className="navbar"
       position="sticky"
       sx={{
         background:
           theme.palette.mode === "dark"
-            ? "#1c1c1c"
-            : "linear-gradient(-135deg, #002a87cc 25%, #9340ffcc 100%)",
-            backdropFilter:"blur(6px)"
+            ? "#292d2e"
+            : "linear-gradient(-135deg, #aa49ff 25%, #7400e7 100%)",
+        backdropFilter: "blur(6px)",
       }}>
       <Container
         maxWidth="none"
@@ -79,7 +79,7 @@ function Navbar() {
         }}>
         <img src={logo} alt="logo" style={{ maxWidth: "130px" }} />
 
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, my: 1 }}>
           <Grid container>
             {/* section 1 */}
             <NavLinks />
@@ -92,7 +92,7 @@ function Navbar() {
                 alignItems: "center",
                 justifyContent: "flex-end",
               }}>
-              <LottieAnimation animationData={giftAnimation} />
+              <LottieAnimation animationData={giftAnimation} width="60px" />
               {!username ? (
                 <Grid
                   container
@@ -116,7 +116,10 @@ function Navbar() {
                     sx={{
                       textTransform: "none",
                       fontSize: "16px",
-                      background: "rgba(255,255,255,.08)",
+                      background:
+                        theme.palette.mode === "dark"
+                          ? "rgba(255,255,255,.08)"
+                          : "rgba(255, 255, 255, 0.15) !important",
                       borderRadius: "20px",
                       color: "#fff",
                       padding: "6px 10px",
@@ -130,20 +133,37 @@ function Navbar() {
                     component={Link}
                     to="/login"
                     variant="outlined"
+                    className="button"
+                    color={theme.palette.text.primary}
                     sx={{
-                      color: "#6992ff",
                       borderRadius: "20px",
                       textTransform: "none",
-                      padding: "2px 20px",
+                      borderColor:
+                        theme.palette.mode === "dark" ? "#24ee89" : "#fff",
                     }}>
                     Login
                   </Button>
 
-                  <img
-                    src={registerButton}
-                    onClick={() => navigate("/register")}
-                    style={{ width: "112px", cursor: "pointer" }}
-                  />
+                  <Button
+                    component={Link}
+                    to="/register"
+                    variant="contained"
+                    className={`button ${
+                      theme.palette.mode === "dark"
+                        ? "greenButton"
+                        : "lightButton"
+                    }`}
+                    color={
+                      theme.palette.mode === "dark"
+                        ? "primary"
+                        : "info !important"
+                    }
+                    sx={{
+                      borderRadius: "20px",
+                      textTransform: "none",
+                    }}>
+                    Register
+                  </Button>
                 </Grid>
               ) : (
                 <Grid

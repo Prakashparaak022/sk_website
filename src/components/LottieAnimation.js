@@ -4,8 +4,9 @@ import Lottie from "lottie-react";
 
 export const LottieAnimation = (props) => {
   const { animationData } = props;
+  const { width } = props;
   return (
-      <Box sx={{width:"60px"}}>
+      <Box sx={{width: width}}>
         <Lottie
           animationData={animationData}
           loop={true}

@@ -20,8 +20,10 @@ import CGame_image_3 from "../../assets/images/C_Game_3.jpg";
 import DGame_image_1 from "../../assets/images/D_Game_1.jpg";
 import DGame_image_2 from "../../assets/images/D_Game_2.jpg";
 import DGame_image_3 from "../../assets/images/D_Game_3.jpg";
-import CardComponent from "../reusable/CardComponent";
+import CardComponent from "../reusable/ScoreCard";
 import Footer from "../layout/Footer";
+import '../../App.css'
+import SportsCricketTwoToneIcon from "@mui/icons-material/SportsCricketTwoTone";
 
 function Home() {
   const AGameImageList = [
@@ -67,6 +69,7 @@ function Home() {
       teamBScore: "37/0",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
     {
       image: cricket,
@@ -78,6 +81,7 @@ function Home() {
       teamBScore: "37/0",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
     {
       image: cricket,
@@ -89,6 +93,7 @@ function Home() {
       teamBScore: "37/0",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
 
     {
@@ -101,6 +106,7 @@ function Home() {
       teamBScore: "37/0",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
   ];
 
@@ -115,6 +121,7 @@ function Home() {
       teamBScore: "37/0",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
     {
       image: cricket,
@@ -126,6 +133,7 @@ function Home() {
       teamBScore: "",
       winnerHScore: "2.33",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
     {
       image: cricket,
@@ -137,6 +145,7 @@ function Home() {
       teamBScore: "-",
       winnerHScore: "--",
       winnerAScore: "--",
+      icon:SportsCricketTwoToneIcon
     },
 
     {
@@ -149,22 +158,31 @@ function Home() {
       teamBScore: "",
       winnerHScore: "1.65",
       winnerAScore: "2.09",
+      icon:SportsCricketTwoToneIcon
     },
   ];
 
   return (
+
     <>
-      <Navbar />
-      <SlideCarousel />
-      <GameBar />
-      <CardComponent title={"Exchange"} cardDetailsList={cardDetailsList} />
-      <GameCarousel title={"Instant Games"} imageList={AGameImageList} />
-      <GameCarousel title={"Slots"} imageList={BGameImageList} />
-      <CardComponent title={"Sports"} cardDetailsList={cardDetailsList2} />
-      <GameCarousel title={"Fishing"} imageList={CGameImageList} />
-      <GameCarousel title={"Board Game"} imageList={DGameImageList} />
-      <Footer />
-    </>
+  <Navbar />
+  <SlideCarousel />
+  <GameBar />
+
+  {/* Blue Ball Section */}
+    <CardComponent title={"Exchange"} cardDetailsList={cardDetailsList} />
+    <GameCarousel title={"Instant Games"} imageList={AGameImageList} />
+
+  {/* Violet Ball Section */}
+    <GameCarousel title={"Slots"} imageList={BGameImageList} />
+    <CardComponent title={"Sports"} cardDetailsList={cardDetailsList2} />
+
+  {/* Green Ball Section */}
+    <GameCarousel title={"Fishing"} imageList={CGameImageList} />
+    <GameCarousel title={"Board Game"} imageList={DGameImageList} />
+
+  <Footer />
+</>
   );
 }
 

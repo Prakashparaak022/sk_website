@@ -29,12 +29,11 @@
 }
 
 .sliderTitle {
-  color: #fff;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: bolder;
 }
+
 .sliderSubTitle {
-  color: #fff;
   cursor: pointer;
   font-size: 16px;
   font-style: normal;
@@ -45,9 +44,6 @@
   color: #6992ff;
 }
 
-.rightArrow {
-  color: #fff;
-}
 .sliderSubTitle:hover ~ .rightArrow {
   color: #6992ff;
 }
@@ -59,9 +55,60 @@
 .cardBox{
   margin-top: 15px;
   transition: transform 0.3s!important;
+  background: #292d2e !important;
 }
+
+.scoreCard .lightCard{
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3)) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important; 
+  box-shadow: 0 4px 10px rgba(8, 8, 8, 0.3) !important;
+}
+
+/* .scoreCard .lightCard {
+  background: rgba(255, 215, 0, 0.2) !important; 
+  backdrop-filter: blur(10px) brightness(1.2) !important; 
+  -webkit-backdrop-filter: blur(10px) brightness(1.2) !important;
+  border: 1px solid rgba(255, 215, 0, 0.5) !important; 
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3) !important;
+} */
 
 .cardBox:hover{
   transform: translateY(-15px);
+}
 
+.teamAScoreDark{
+  color: #000;
+  font-weight: bold;
+  box-shadow: rgba(112, 231, 0, 0.4) 0 2px 10px 0 !important;
+  border:1px solid #24ee42!important;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(90deg, #24ee89, #9fe871) !important;
+}
+
+.teamBScoreDark{
+  color: #000;
+  font-weight: bold;
+  box-shadow: rgba(112, 231, 0, 0.4) 0 2px 10px 0 !important;
+  border:1px solid #24ee42!important;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(90deg, #24ee89, #9fe871) !important;
+}
+
+.teamAScoreLight{
+  color: #fff;
+  font-weight: bold;
+  box-shadow: rgba(0,116,231,.4) 0 6px 10px 0;
+  border:1px solid #0080ff!important;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(-135deg,rgb(73,164,255) 25%,rgb(0,116,231) 100%);
+}
+.teamBScoreLight{
+  color: #fff;
+  font-weight: bold;
+  box-shadow: rgba(158, 0, 231, 0.4) 0 6px 10px 0;
+  border:1px solid #9000ff!important;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(-135deg,rgb(179, 73, 255) 25%,rgb(185, 0, 231) 100%);
 }
