@@ -79,11 +79,12 @@ function NavLinks({customStyles}) {
       <Box
         onMouseLeave={() => setActiveHoverIndex(null)}
         sx={{
+          // display : {lg:"none", xl:"flex" },
           position: "absolute",
           top: "70px",
           left: 0,
           right: 0,
-          display: activeHoverIndex ? "flex" : "none",
+          display: {lg : "none", xl: activeHoverIndex ? "flex" : "none"},
           justifyContent: "space-around",
           backgroundColor: "#000",
           padding: "20px",
