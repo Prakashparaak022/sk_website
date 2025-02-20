@@ -26,9 +26,10 @@ import footerGift from "../../assets/images/footer_gift.png";
 import footerLottery from "../../assets/images/footer_lottery.png";
 import footerSlot from "../../assets/images/footer_slot.png";
 import footerVip from "../../assets/images/footer_vip.png";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import "../../assets/css/Footer.css";
 import { DataContext } from "../context/DataContext";
+import logo from "../../assets/images/logo/bet_duniya.png";
 
 function Footer() {
   const { toggleTheme, setToggleTheme } = useContext(DataContext);
@@ -79,6 +80,15 @@ function Footer() {
       title: "VIP",
     },
   ];
+
+  const footerDetails = `Mk.com is owned and operated by Middle Kang B.V. that is
+                incorporated under the laws of Curaçao with company registration
+                number 168291 and having its registered address at Kaya Richard
+                J. Beaujon Z/N, Curaçao. To register for this website, the user
+                is required to accept the General Terms and Conditions, Privacy
+                Policy, and Cookie Policy. It is the player’s sole
+                responsibility to inquire about the existing laws and
+                regulations of the given jurisdiction for online gambling.`
 
   return (
     <Container
@@ -184,16 +194,7 @@ function Footer() {
             <Grid size={{ xs: 12, md: 8 }}>
               <Typography
                 variant="body1"
-                sx={{ color: theme.palette.text.secondary }}>
-                Mk.com is owned and operated by Middle Kang B.V. that is
-                incorporated under the laws of Curaçao with company registration
-                number 168291 and having its registered address at Kaya Richard
-                J. Beaujon Z/N, Curaçao. To register for this website, the user
-                is required to accept the General Terms and Conditions, Privacy
-                Policy, and Cookie Policy. It is the player’s sole
-                responsibility to inquire about the existing laws and
-                regulations of the given jurisdiction for online gambling.
-              </Typography>
+                sx={{ color: theme.palette.text.secondary }}>{footerDetails}</Typography>
             </Grid>
 
             <Grid size={{ xs: 12, md: 3 }} gap={2} sx={{ display: "flex" }}>
@@ -218,7 +219,7 @@ function Footer() {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container>
             <Grid container size={4} alignItems={"center"}>
-              <img src={logo} style={{ width: "40%" }} alt="logo" />
+              <img src={logo} style={{ width: "30%" }} alt="logo" />
               <ToggleButtonGroup
                 color="primary"
                 exclusive

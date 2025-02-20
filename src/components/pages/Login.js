@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import registerBannerBackground from "../../assets/images/register_banner_image.png";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LockOutlined from "@mui/icons-material/LockOutlined";
@@ -23,6 +23,8 @@ import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { useFormik } from "formik"
 import { loginSchema } from "../../schema";
+import logo from "../../assets/images/logo/bet_duniya.png";
+
 
 function Login() {
   
@@ -126,7 +128,7 @@ function Login() {
         <img
           src={logo}
           alt="logo"
-          style={{ marginTop: "40px" }}
+          style={{ marginTop: "40px", width:"200px" }}
         />
         <Paper className="registerBox">
           <Paper className="registerInnerBox">

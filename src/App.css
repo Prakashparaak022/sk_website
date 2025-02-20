@@ -21,17 +21,19 @@
  }
 
  /* Dark Theme */
- .button{
-  padding: .3rem 1.5rem !important;
- }
-
+ 
 .greenButton{
   color: #000;
   background-image: linear-gradient(90deg, #24ee89, #9fe871) !important;
   box-shadow: rgba(35, 238, 136, 0.3) 0px 0px 12px, rgb(29, 202, 106) 0px -2px inset !important;
 }
 .lightButton {
-  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff;
+  background: linear-gradient(-135deg,rgb(73,164,255) 25%,rgb(0,116,231) 100%) !important;
+  box-shadow: rgba(0,116,231,.4) 0 6px 10px 0 !important;
+  border:1px solid #0080ff!important;
+  backdrop-filter: blur(16px);
+
 }
 /* Gamebar */
 .lightGamebar{

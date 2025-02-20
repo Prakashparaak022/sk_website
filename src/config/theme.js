@@ -12,6 +12,7 @@ export const darkTheme = createTheme({
         secondary: "#7c7c7c",
         highlight: "#9fe871"
       },
+      border:"#24ee89"
     }
   });
 
@@ -27,5 +28,6 @@ export const lightTheme = createTheme({
       secondary: "#fff",
       highlight: "#21a8f7"
     },
+      border:"rgba(255, 255, 255, 0.80)"
   },
 });

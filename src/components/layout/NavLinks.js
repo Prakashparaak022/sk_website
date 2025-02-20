@@ -7,7 +7,7 @@ import hoveredImage3 from "../../assets/images/hovered_image_3.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-function NavLinks() {
+function NavLinks({customStyles}) {
   const theme = useTheme();
   const [activeHoverIndex, setActiveHoverIndex] = useState(null);
 
@@ -46,7 +46,8 @@ function NavLinks() {
         size={{ xs: 12, xl: 6, lg: 0 }}
         gap={1}
         sx={{
-          display: { xl: "flex", lg: "none", xs: "none" },
+          // display: { xl: "flex", lg: "none", xs: "none" },
+          ...customStyles,
           alignItems: "center",
         }}>
         {navLinksList.map((item, index) => (
