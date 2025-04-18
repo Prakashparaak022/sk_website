@@ -1,30 +1,16 @@
 import {
   AppBar,
-  Avatar,
   Box,
-  Button,
   Container,
   Drawer,
   Grid2 as Grid,
   IconButton,
-  Menu,
-  MenuItem,
-  Paper,
-  TextField,
-  Typography,
   useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
-import logo from "../../assets/images/logo/bet_duniya.png";
+import logo from "../../assets/images/logo/bet_duniya_light.png";
 import MenuIcon from "@mui/icons-material/Menu";
-import registerButton from "../../assets/images/register_button.png";
-import profileLogo from "../../assets/images/user_image.png";
-import { Link, useNavigate } from "react-router-dom";
-import { LottieAnimation } from "../LottieAnimation";
-import giftAnimation from "../../assets/animation/gift.json";
-import WalletTwoToneIcon from "@mui/icons-material/WalletTwoTone";
-import CurrencyExchangeTwoToneIcon from "@mui/icons-material/CurrencyExchangeTwoTone";
-import LocalAtmTwoToneIcon from "@mui/icons-material/LocalAtmTwoTone";
+import { useNavigate } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import AccountControls from "./AccountControls";
 
@@ -99,7 +85,7 @@ function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
         }}>
-        <img src={logo} alt="logo" style={{ maxWidth: "70px" }} />
+        <img src={logo} alt="logo" style={{ maxWidth: "80px", m:1}} />
 
         {/* Dekstop View */}
         <Box sx={{ flexGrow: 1, my: 1 }}>

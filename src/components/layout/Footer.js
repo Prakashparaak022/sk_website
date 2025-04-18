@@ -1,22 +1,14 @@
 import {
   Box,
-  colors,
   Container,
   Divider,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
   Grid2 as Grid,
-  Paper,
-  Radio,
-  RadioGroup,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-  useColorScheme,
   useTheme,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import restriction from "../../assets/images/restriction.png";
 import GCB from "../../assets/images/GCB.png";
@@ -26,10 +18,9 @@ import footerGift from "../../assets/images/footer_gift.png";
 import footerLottery from "../../assets/images/footer_lottery.png";
 import footerSlot from "../../assets/images/footer_slot.png";
 import footerVip from "../../assets/images/footer_vip.png";
-// import logo from "../../assets/images/logo.png";
 import "../../assets/css/Footer.css";
 import { DataContext } from "../context/DataContext";
-import logo from "../../assets/images/logo/bet_duniya.png";
+import logo from "../../assets/images/logo/bet_duniya_light.png";
 
 function Footer() {
   const { toggleTheme, setToggleTheme } = useContext(DataContext);

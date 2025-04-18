@@ -24,7 +24,7 @@ import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { useFormik } from "formik";
 import { registerSchema } from "../../schema";
-import logo from "../../assets/images/logo/bet_duniya.png";
+import logo from "../../assets/images/logo/bet_duniya_light.png";
 
 function Register() {
   const [formData, setFormData] = useState({

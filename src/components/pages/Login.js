@@ -19,11 +19,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LockOutlined from "@mui/icons-material/LockOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { useFormik } from "formik"
 import { loginSchema } from "../../schema";
-import logo from "../../assets/images/logo/bet_duniya.png";
+import logo from "../../assets/images/logo/bet_duniya_light.png";
 
 
 function Login() {
@@ -77,9 +75,9 @@ function Login() {
       console.log("Login data : ", data);
       if (response.status === 201 || response.status === 200) {
         console.log("Login as : ", data.userName);
-        localStorage.setItem("username", data.userName)
-        localStorage.setItem("userId", data.id)
-        localStorage.setItem("playerCurrencyId", data.playerCurrencyId)
+        sessionStorage.setItem("username", data.userName)
+        sessionStorage.setItem("userId", data.id)
+        sessionStorage.setItem("playerCurrencyId", data.playerCurrencyId)
         setDrawer(true);
         setTimeout(() => {
           navigate("/");

@@ -24,6 +24,7 @@ import CardComponent from "../reusable/ScoreCard";
 import Footer from "../layout/Footer";
 import '../../App.css'
 import SportsCricketTwoToneIcon from "@mui/icons-material/SportsCricketTwoTone";
+import HeroBanner from "../features/HeoBanner.js/HeroBanner";
 
 function Home() {
   const AGameImageList = [
@@ -167,6 +168,7 @@ function Home() {
     <>
   <Navbar />
   <SlideCarousel />
+  <HeroBanner />
   <GameBar />
 
   {/* Blue Ball Section */}
